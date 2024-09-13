@@ -28,8 +28,8 @@ group by date
 order by 1;
 
 
---Loking at total vaccination comparing to population by location by date.
---Created a column 'rolling_vac' to show the daily changes in numder of people vaccinated
+--Looking at total vaccination comparing to population by location by date.
+--Created a column 'rolling_vac' to show the daily changes in number of people vaccinated
 select d.continent, d.location, d.date, d.population, new_vaccinations, 
 sum(new_vaccinations) over (partition by d.location order by d.location, d.date) as rolling_vac
 from deaths d
